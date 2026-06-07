@@ -1,0 +1,30 @@
+agent:
+  enabled: true
+  resources:
+    limits:
+      cpu: "1"
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+controller:
+  installPlugins:
+  - kubernetes
+  - workflow-aggregator
+  - git
+  - github
+  - configuration-as-code
+  - azure-credentials
+  numExecutors: 0
+  resources:
+    limits:
+      cpu: "2"
+      memory: 4Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  serviceType: LoadBalancer
+persistence:
+  enabled: true
+  size: 20Gi
+  storageClass: managed-csi
